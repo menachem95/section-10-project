@@ -5,7 +5,6 @@ import classes from "./Login.module.css";
 import Button from "../UI/Button/Button";
 
 const emailReducer = (state, action) => {
-  console.log(action.val);
   if (action.type === "USER_INPUT") {
     return { value: action.val, isValid: action.val.includes("@") };
   }
@@ -16,9 +15,7 @@ const emailReducer = (state, action) => {
 };
 
 const passwordReducer = (state, action) => {
-  console.log(action.val);
   if (action.type === "USER_INPUT") {
-    console.log(action.val);
     return { value: action.val, isValid: action.val.trim().length > 6 };
   }
   if (action.type === "INPUT_BLUR") {
@@ -64,7 +61,6 @@ const Login = (props) => {
   };
 
   const passwordChangeHandler = (event) => {
-    console.log(event.target.value);
     dispatchPassword({ type: "USER_INPUT", val: event.target.value });
 
     //  setFormIsValid(emailState.isValid && passwordState.isValid);
